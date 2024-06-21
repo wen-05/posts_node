@@ -87,6 +87,8 @@ const requestListener = async (req, res) => {
                 const id = oldData._id.toString();
                 await Post.findByIdAndDelete(id);
                 handleSuccess(res, `此資料刪除成功`, null);
+            } else {
+                handleError(res, "找不到此id資料");
             }
         } catch (error) {
             handleError(res, "找不到此id資料");
